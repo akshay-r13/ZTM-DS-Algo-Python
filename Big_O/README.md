@@ -13,11 +13,11 @@ Big O is used to indicate the **Scalability** of code
 
 ## Definition of Big O
 
-```
-“ Big O notation is a mathematical notation that describes the limiting behavior of a function when the argument tends towards a particular value or infinity. It is a member of a family of notations invented by Paul Bachmann, Edmund Landau, and others, collectively called Bachmann–Landau notation or asymptotic notation. ”
+
+    “ Big O notation is a mathematical notation that describes the limiting behavior of a function when the argument tends towards a particular value or infinity. It is a member of a family of notations invented by Paul Bachmann, Edmund Landau, and others, collectively called Bachmann–Landau notation or asymptotic notation. ”
 
     — Wikipedia’s definition of Big O notation
-``` 
+
 
 In simpler words Big O is used to indicate **how the runtime / memory consumption of a program increases** with increase in size of the input.
 
@@ -54,12 +54,28 @@ In simpler words Big O is used to indicate **how the runtime / memory consumptio
 - Worst case scenario
 - Example: You are adding a loop for every element
 
-### Operations to consider while calculating Big O
+### Big O Time Complexity Operations
 1. Arithmetic Operations `(+, -, *, /)`
 2. Comparisons `(<, >, ==)`
 3. Looping `(for, while)`
 4. Function calls `(function())`
 
+### Big O Space Complexity Operations
+1. Variables
+2. Data Structures
+3. Function Calls
+4. Allocations
+
 ---
 
+## Rule Book
 
+### Rule 1: Always consider the worst Case
+
+### Rule 2:  Remove Constants
+
+### Rule 3: Different inputs should have different variables
+O(a+b). 
+A and B arrays nested would be O(a*b) + for steps in order* for nested steps
+
+### Rule 4: Drop Non-dominant terms
