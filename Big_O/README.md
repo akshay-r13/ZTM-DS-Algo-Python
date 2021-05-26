@@ -71,8 +71,60 @@ In simpler words Big O is used to indicate **how the runtime / memory consumptio
 ## Rule Book
 
 ### Rule 1: Always consider the worst Case
+Always consider the worst efficient scenario.
+
+**Example:** Finding item in an array
+
+```python
+# Function to find item in an array
+def find_item(array, item):
+    for i in range(0, len(array)):
+        print("Checking item number: ", str(i))
+        if array[i] == item:
+            print("Found Item '", item , "' at index ", str(i))
+            return i
+    print("Item not found")
+```
+There are 2 scenarios:
+
+1. Best case scenario: Item is the first element in the list
+
+```python
+fruits = ['apple', 'orange', 'banana', 'watermelon', 'mango']
+
+find_item(array=fruits, item='apple')
+```
+Output:
+
+    Checking item number: 0
+    Found Item 'apple' at index 0  
+
+2. Worst case scenario: Item is not present in the list
+
+```python
+fruits = ['apple', 'orange', 'banana', 'watermelon', 'mango']
+
+find_item(array=fruits, item='pomegranate')
+
+```
+
+Output:
+
+    Checking item number: 0
+    Checking item number: 1
+    Checking item number: 2
+    Checking item number: 3
+    Checking item number: 4
+    Item not found
+
+In scenario 1, total operations: 1 . O(1)
+
+In scenario 2, total operations: n (size of array). O(n)
+
+**We must Consider scenario 2 O(n) while calculating Big O**
 
 ### Rule 2:  Remove Constants
+
 
 ### Rule 3: Different inputs should have different variables
 O(a+b). 
