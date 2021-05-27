@@ -125,9 +125,135 @@ In scenario 2, total operations: n (size of array). O(n)
 
 ### Rule 2:  Remove Constants
 
+When calculating the Big O, we have to ignore the constants.
+
+**Example:** Consider the following function
+
+```python
+
+def print_boxes_twice(boxes):
+    for i in range(0, 4): # O(4)
+        print("Printing number: ", + str(i))
+    
+    for i in range(len(boxes)): # O(n)
+        print("Box: ", boxes[i])
+        
+    for i in range(len(boxes)): # O(n)
+        print("Box: ",  boxes[i])
+        
+
+        
+boxes = ['box1', 'box2', 'box3']
+
+print_boxes_twice(boxes)
+
+```
+
+Output:
+    
+        Printing number: 0
+        Printing number: 1
+        Printing number: 2
+        Printing number: 3
+        Box: box1
+        Box: box2
+        Box: box3
+        Box: box1
+        Box: box2
+        Box: box3
+    
+The runtime of the above function can be calculated as:
+
+`O(fn) = O(4 + 2n)`
+
+Here we can ignore 4 and `2n` can be simplified to `n`.
+
+`O(fn) = O(n)`
+
 
 ### Rule 3: Different inputs should have different variables
-O(a+b). 
-A and B arrays nested would be O(a*b) + for steps in order* for nested steps
+
+In case of multiple inputs affecting the scale of a function. Consider the different inputs as different variables.
+
+**Example:** Consider the following function
+
+```python
+def print_2_arrays(array1, array2):
+    # Print first array
+    for i in range(len(array1)):
+        print(array1[i])
+    # Print second array
+    for i in range(len(array2)):
+        print(array2[i])
+        
+        
+array1 = [0,1,2,3]
+array2 = ['a', 'b', 'c', 'd', 'e']
+
+print_2_arrays(array1, array2)
+```
+
+Output:
+    0
+    1
+    2
+    3
+    a
+    b
+    c
+    d
+    e
+    
+In the above example, the runtime depends on 2 inputs `array1` and `array2`. 
+
+It can be denoted as:
+
+`O(fn) = O(a + b)`
 
 ### Rule 4: Drop Non-dominant terms
+
+Always consider the dominant terms in the calculation
+
+**Example:** Consider the following function
+
+```python
+
+def print_numbers_then_combos(numbers):
+    print("These are the numbers:")
+    for i in range(len(numbers)):
+        print(numbers[i])
+        
+    print("These are all the combinations:")
+    for i in range(len(numbers)):
+        for j in range(len(numbers)):
+            print(numbers[i], numbers[j])
+
+numbers = [1,2,3]
+
+print_numbers_then_combos(numbers)
+```
+
+Output:
+
+    These are the numbers:
+    1
+    2
+    3
+    These are all the combinations:
+    1, 1
+    1, 2
+    1, 3
+    2, 1
+    2, 2
+    2, 3
+    3, 1
+    3, 2
+    3, 3
+    
+For the above example
+
+`O(fn) = O(n) + O(n^2)`
+
+However we only care about the dominant term. So O(n) can be ignored
+
+`O(fn) = O(n^2)`
