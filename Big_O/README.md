@@ -194,6 +194,7 @@ print_2_arrays(array1, array2)
 ```
 
 Output:
+
     0
     1
     2
