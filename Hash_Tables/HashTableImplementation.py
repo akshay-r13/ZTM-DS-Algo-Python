@@ -68,6 +68,22 @@ class HashTable:
                     return i
         return None
     
+    def keys(self):
+        '''
+        keys() -> Function to get all keys stored in the hash table
+        Input:
+            None
+        Returns:
+            keys (list) -> A list of keys in the hash table
+        '''
+        keys = []
+        for entry in self.data:
+            if entry is not None:
+                for key_value_list in entry:
+                    key, value = key_value_list[0], key_value_list[1]
+                    keys.append(key)
+        return keys
+    
     
 # Create a hash table
 hash_table = HashTable(2)
@@ -82,3 +98,7 @@ print(hash_table.get('akshay'))
 print(hash_table.get('grapes'))
 print(hash_table.get('apple'))
 print(hash_table.get('orange'))
+
+
+
+print("All keys in the Hash Table: ", hash_table.keys())
