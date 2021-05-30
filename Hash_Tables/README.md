@@ -95,7 +95,7 @@
 
 ## Review
 
-In an interview context, Hash Tables are **sually used to optimize time complexity of a solution**
+In an interview context, Hash Tables are **usually used to optimize time complexity of a solution**
 
 ### Hash Table vs Arrays
 
