@@ -37,12 +37,12 @@ class BinaryTree:
         if value == node.value:
             return value
         if value < node.value and node.left is not None:
-            return self._lookup_node(node.left)
+            return self._lookup_node(node.left, value)
         if value > node.value and node.right is not None:
-            return self._lookup_node(node.right)
+            return self._lookup_node(node.right, value)
     
     def lookup(self, value):
-        return _lookup_node(self.root, value)
+        return self._lookup_node(self.root, value)
         
     
     def remove(self, value):
@@ -58,17 +58,26 @@ class BinaryTree:
     def traverse(self):
         tree_dict = self._traverse_node(self.root)
         return tree_dict
-    
-    def __str__(self):
-        return self.traverse()
+
     
 
     
 binary_tree = BinaryTree()
-binary_tree.insert(20)
-binary_tree.insert(10)
-binary_tree.insert(30)
-binary_tree.insert(5)
-binary_tree.insert(14)
 
+print("Insert Value in Tree: ", 20)
+binary_tree.insert(20)
+print("Insert Value in Tree: ", 10)
+binary_tree.insert(10)
+print("Insert Value in Tree: ", 30)
+binary_tree.insert(30)
+print("Insert Value in Tree: ", 5)
+binary_tree.insert(5)
+print("Insert Value in Tree: ", 14)
+binary_tree.insert(14)
+print()
+print("Tree: ")
 pprint(binary_tree.traverse(), width=1)
+print()
+
+print("Lookup value: ", 10, binary_tree.lookup(10))
+print("Lookup value: ", 25, binary_tree.lookup(25))
